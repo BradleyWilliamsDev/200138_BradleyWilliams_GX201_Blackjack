@@ -11,7 +11,7 @@ public class PlayerAndDealerScript : MonoBehaviour
     //Keeping total value of the player and dealers hands
     public int handValue = 0;
     //Players starting money 
-    private int startMoney = 1000;
+    public int startMoney = 1000;
 
     //Cards on the table
     public GameObject[] hand;
@@ -42,7 +42,7 @@ public class PlayerAndDealerScript : MonoBehaviour
             aceList.Add(hand[cardIndex].GetComponent<CardScript>());
         }
         //AceCheck checks player or dealers hand to know whether or not to use a 1 or 11 as it's value
-        // AceCheck();
+        AceCheck();
         cardIndex++;
         return handValue;
     }
@@ -77,5 +77,17 @@ public class PlayerAndDealerScript : MonoBehaviour
     public int GetMoney()
     {
         return startMoney;
+    }
+
+    public void ResetTableHands()
+    {
+        for (int i = 0; i < hand.Length; i++)
+        {
+            hand[i].GetComponent<CardScript>().ResetCard();
+            hand[i].GetComponent<Renderer>().enabled = false;
+        }
+        cardIndex = 0;
+        handValue = 0;
+        aceList = new List<CardScript>();
     }
 }
