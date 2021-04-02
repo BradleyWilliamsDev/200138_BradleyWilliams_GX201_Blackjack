@@ -11,7 +11,7 @@ public class DeckManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ValueOfCard();
     }
 
     // Update is called once per frame
