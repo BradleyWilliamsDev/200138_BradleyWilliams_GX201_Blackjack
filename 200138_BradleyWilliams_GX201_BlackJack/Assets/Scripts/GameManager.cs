@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         currentPot = 40;
         currentPotText.text = "Current Pot\n" + currentPot.ToString();
         player.UpdatePlayerBank(-20);
-        playerBankText.text = player.GetMoney().ToString() + " chips";
+        playerBankText.text = "Player current Balance\n" + player.GetMoney().ToString() + " chips";
     }
 
     void HitClicked()
