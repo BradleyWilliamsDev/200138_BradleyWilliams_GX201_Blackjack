@@ -9,7 +9,7 @@ public class PlayerAndDealerScript : MonoBehaviour
     public DeckManager deckScript;
 
     //Keeping total value of the player and dealers hands
-    int handValue = 0;
+    public int handValue = 0;
     //Players starting money 
     private int startMoney = 1000;
 
