@@ -46,4 +46,36 @@ public class PlayerAndDealerScript : MonoBehaviour
         cardIndex++;
         return handValue;
     }
+
+    // Checks for aces and decides on the value of the ace
+    public void AceCheck()
+    {
+        foreach (CardScript ace in aceList)
+        {
+            //Checks for every ace in the list
+            if (handValue + 10 < 22 && ace.GetValueOfCard() == 1)
+            {
+                //if converting, adjust card value and hand value
+                ace.SetCardValue(11);
+                handValue += 10;
+            }
+            else if (handValue > 21 && ace.GetValueOfCard() == 11)
+            {
+                ace.SetCardValue(1);
+                handValue -= 10;
+            }
+        }
+    }
+
+    // change the players bank balance
+    public void UpdatePlayerBank(int amount)
+    {
+        startMoney += amount;
+    }
+
+    //Output the players current amount of money
+    public int GetMoney()
+    {
+        return startMoney;
+    }
 }
